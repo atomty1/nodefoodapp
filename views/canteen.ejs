@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    
+     
+    </script>
+</head>
+<body>
+    <div>
+        <% if(typeof(user)!== 'undefined'){ %>
+            <h1>Welcome <%= user.firstName + user.lastName %></h1>
+            <div>You have eaten <%= user.status %> times</div>
+        <%}%>
+    </div>
+    All Foods
+    <% if(typeof(allFoods)!== 'undefined'){ %>
+    <% allFoods.forEach(food => { %>
+        <div style="margin-bottom: 5px;"><%= food.name %> 
+            Available between <%= food.startNum %>
+            to <%= food.endNum  %> today.
+           
+            <% if(food.startNum <= hr && food.endNum>=hr){%>
+               
+               
+                <button><a href="/editFood/<%= user.email %>">Available</a></button>
+            <%}else{%>
+                <button>Not Available</button>
+            <%}%>
+            
+        </div>
+        <!-- <div></div> -->
+    <%})%>
+    <%}else{ %>
+        Something went wrong
+    <%}%>
+    <% if(typeof(message)!== 'undefined'){ %>
+        <div> <%= message %></div>
+ 
+     <%} %>
+</body>
+</html>
